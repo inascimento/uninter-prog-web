@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uninter - Ferramentas de Desenvolvimento Web - Igor Nascimento - RU 7435723</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="container">
+        <h1>Igor Nascimento</h1>
+    </header>
+    <nav class="container menu">
+        <ul>
+            <li><a href="index.html">Sobre mim</a></li>
+            <li><a href="formacao.html">Minha formação</a></li>
+            <li><a href="https://www.linkedin.com/in/inasc" target="_black">Meu portifólio</a></li>
+            <li><a href="contato.html">Entre em contato</a></li>
+        </ul>
+    </nav>
+    <div class="container wrapper">
+        <aside class="imagem_logo">
+            <img src="image/igor-nascimento.png">
+            <div class="infos">
+                <table>
+                    <tr><th>Ocupação</th><td>Programador</td></tr>
+                    <tr><th>Nascimento</th><td>05/03/1980</td></tr>
+                    <tr><th>Cidade</th><td>Jaguarari/BA</td></tr>
+                </table>
+            </div>
+        </aside>
+        <section class="principal">
+            <h1><label id="nome"></label></h1>
+            <h3>Retornarei assim que possível.</h3>
+            <section class="subsection">
+                <h3>Mensagem recebida:</h3>
+                <label id="mensagem"></label>
+            </section>
+            <br>
+            <a href="contato.html">Volta ao formulário de contato</a>
+         </section>
+    </div>
+    <footer class="container">
+        <i>Igor Nascimento - RU 7435723</i>
+    </footer>
+    <script>
+        let nome = localStorage.getItem("nome");
+        let mensagem = localStorage.getItem("mensagem");
+
+        if (!nome || !mensagem) {
+            // Retorna para a pagina de contato se o nome ou a mensagem não existir no localstore.
+            window.location.href = "contato.html";
+        }
+
+        document.getElementById("nome").innerHTML = "Olá " + nome + ", muito obrigado por seu contato.";
+        document.getElementById("mensagem").innerHTML = mensagem;
+    </script>
+</body>
+</html>
