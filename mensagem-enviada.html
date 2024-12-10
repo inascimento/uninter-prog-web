@@ -31,11 +31,12 @@
         </aside>
         <section class="principal">
             <h1><label id="nome"></label></h1>
-            <h3>Retornarei assim que possível.</h3>
+            <h3>Retornarei assim que possível para o e-mail <label id="email"></label></h3>
             <section class="subsection">
                 <h3>Mensagem recebida:</h3>
                 <label id="mensagem"></label>
             </section>
+            <br>
             <br>
             <a href="contato.html">Voltar ao formulário de contato</a>
          </section>
@@ -45,14 +46,17 @@
     </footer>
     <script>
         let nome = localStorage.getItem("nome");
+        let email = localStorage.getItem("email");
         let mensagem = localStorage.getItem("mensagem");
 
-        if (!nome || !mensagem) {
-            // Retorna para a pagina de contato se o nome ou a mensagem não existir no localstore.
+        if (!nome || !email || !mensagem) {
+            // Retorna para a pagina de contato se o nome, email ou mensagem não existir no localstorage.
             window.location.href = "contato.html";
+            alert("Erro nos dados!\n\nAlguns campos do formulário não foram preenchidos corretamente.")
         }
 
         document.getElementById("nome").innerHTML = "Olá " + nome + ", muito obrigado por seu contato.";
+        document.getElementById("email").innerHTML = email;
         document.getElementById("mensagem").innerHTML = mensagem;
     </script>
 </body>

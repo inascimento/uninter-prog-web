@@ -37,6 +37,9 @@
                     <label for="nome">Informe seu nome</label>
                     <input type="text" id="nome">
                     <br>
+                    <label for="email">Informe seu e-mail</label>
+                    <input type="text" id="email">
+                    <br>
                     <label for="mensagem">Mensagem</label>
                     <textarea id="mensagem"></textarea>
                     <br>
@@ -52,11 +55,18 @@
         function enviarMensagem() {
             // Pega os dados inseridos pelo usuario
             let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
             let mensagem = document.getElementById("mensagem").value;
 
             // Valida o nome
             if (!nome || nome.trim().length === 0) {
                 alert("Erro nos dados!\n\nPor favor informe seu nome.");
+                return;
+            }
+
+            // Valida o email
+            if (!email || email.trim().length === 0) {
+                alert("Erro nos dados!\n\nPor favor informe seu e-mail.");
                 return;
             }
 
@@ -66,8 +76,9 @@
                 return;
             }
         
-            // Guarda o nome e a mensagem no localstore
+            // Guarda o nome, email e a mensagem no localstore
             localStorage.setItem("nome", nome);
+            localStorage.setItem("email", email);
             localStorage.setItem("mensagem", mensagem);
 
             // Redireciona para a pagina de mensagem enviada
